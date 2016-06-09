@@ -1,39 +1,7 @@
-
-#Methods
-
-
 def index(contacts)
   contacts.each_with_index do |contact, i|
-    puts "#{i + 1}) #{contact[:name]}"
+     puts "#{i+1}) #{contact[:name]}"
   end
-end
-
-def show(contact)
-  contact = {}
-  puts
-  puts "#{contact[:name]}"
-  puts "phone: #{contact[:phone]}"
-  puts "email: #{contact[:email]}"
-end
-
-def ask(prompt)
-  puts
-  print (prompt)
-  gets.chomp
-end
-
-
-def create_new
-  contact = {}
-
-  puts
-  puts "Enter contact info:"
-
-  contact[:name ] = ask "Name? "
-  contact[:phone] = ask "Phone? "
-  contact[:email] = ask "Email? "
-
-  contact
 end
 
 def action_new( contacts )
@@ -57,8 +25,30 @@ def action_show( contacts, i )
    puts
 end
 
+def show(contact)
+   puts "#{contact[:name]}"
+   puts "phone: #{contact[:phone]}"
+   puts "email: #{contact[:email]}"
+end
 
-#Adding data to contacts
+def create_new
+   contact = {}
+
+   puts
+   puts "Enter contact info:"
+
+   contact[:name ] = ask "Name? "
+   contact[:phone] = ask "Phone? "
+   contact[:email] = ask "Email? "
+
+   contact
+end
+
+def ask(prompt)
+   puts
+   print prompt
+   gets.chomp
+end
 
 contacts = []
 
@@ -67,9 +57,6 @@ contacts << { name: "Charles Darwin"  , phone: "+44 20 7123 4567", email: "darle
 contacts << { name: "Nikola Tesla"    , phone: "+385 43 987 3355", email: "nik@inductlabs.com" }
 contacts << { name: "Genghis Khan"    , phone: "+976 2 194 2222" , email: "contact@empire.com" }
 contacts << { name: "Malcom X"        , phone: "+1 310 155 8822" , email: "x@theroost.org"     }
-
-
-#Flow
 
 loop do
    index( contacts )
