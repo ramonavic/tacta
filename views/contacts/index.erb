@@ -1,8 +1,21 @@
 <h2>Contacts</h2>
 
+<div class = "contact-list">
 <% @contacts.each_with_index do |contact, i| %>
-    <h3><a href="/contacts/<%= i %>"><%= contact[:name] %></a></h3>
+  <div class="contact">
+    <div class="name">
+      <a href="/contacts/<%= i %>"><%= contact[:name] %></a>
+    </div>
+    <div class="edit">
+      <a class = "edit-btn" href = "/contacts/edit/<%= i %>"> Edit</a>
+    </div>
+  </div>
 <% end %>
+</div>
 
+<div class = "nav">
 <br>
+<hr/>
+
 <a href="/contacts/new">[New]</a>
+</div>

@@ -32,6 +32,25 @@ get '/contacts/:i/edit' do
    erb :'contacts/edit'
 end
 
+get '/contacts/:i/delete' do
+   i = params[:i].to_i
+
+   contacts = read_contacts
+   contacts.delete_at( i )
+   write_contacts( contacts )
+
+   redirect "/contacts"
+end
+
+get '/contacts/edit/:i' do
+  @i = params[:i].to_i
+
+  contacts = read_contacts
+  @contact = contacts[@i]
+
+  erb :'contacts/edit'
+end
+
 post '/contacts' do
    new_contact = { name: params[:name], phone: params[:phone], email: params[:email] }
 
@@ -54,14 +73,4 @@ post '/contacts/:i/update' do
    write_contacts( contacts )
 
    redirect "/contacts/#{i}"
-end
-
-get '/contacts/:i/delete' do
-   i = params[:i].to_i
-
-   contacts = read_contacts
-   contacts.delete_at( i )
-   write_contacts( contacts )
-
-   redirect "/contacts"
 end

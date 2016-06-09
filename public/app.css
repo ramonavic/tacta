@@ -1,3 +1,7 @@
+/** {
+  border: 2px solid red;
+}*/
+
 body a {
   color: #FFEB3B;
 
@@ -11,4 +15,51 @@ button a {
 body {
   background-color: #009688;
   color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+h2 {
+  text-decoration: underline;
+
+}
+
+.contact {
+  padding: 0 16px;
+}
+
+.name {
+  float: left;
+  width: 75%;
+}
+
+.edit {
+  float: left;
+  text-align: right;
+  width: 20%;
+}
+
+
+.edit-btn {
+  color: #FFC107;
+  text-align: right;
+  /*margin-left: 30%;
+  margin-right: 30%;*/
+  width: 20%;
+  /*display: block;*/
+
+}
+
+.contact-list {
+  margin: 10px auto;
+  text-align: left;
+  width: 40%;
+  /*margin-left: 30%;
+  margin-right: 30%;*/
+}
+
+.nav {
+  padding-top: 15%;
+  display: block;
+  /*position: relative;*/
 }
