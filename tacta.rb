@@ -34,14 +34,18 @@ contacts << { name: "Malcom X"        , phone: "+1 310 155 8822" , email: "x@the
 
 #Flow
 
-index(contacts)
+loop do
+  index(contacts)
 
-puts
-response = ask "Who would you like to see?"
+  puts
+  response = ask "Who would you like to see? (q to quit)"
 
-i = response.to_i
+  break if response == "q"
+  i = response.to_i
 
-contact = contacts[i-1]
+  contact = contacts[i-1]
 
-puts
-show(contact)
+  puts
+  show(contact)
+  puts
+end
