@@ -9,6 +9,7 @@ def index(contacts)
 end
 
 def show(contact)
+  contact = {}
   puts
   puts "#{contact[:name]}"
   puts "phone: #{contact[:phone]}"
@@ -19,6 +20,20 @@ def ask(prompt)
   puts
   print (prompt)
   gets.chomp
+end
+
+
+def create_new
+  contact = {}
+
+  puts
+  puts "Enter contact info:"
+
+  contact[:name ] = ask "Name? "
+  contact[:phone] = ask "Phone? "
+  contact[:email] = ask "Email? "
+
+  contact
 end
 
 #Adding data to contacts
@@ -35,17 +50,32 @@ contacts << { name: "Malcom X"        , phone: "+1 310 155 8822" , email: "x@the
 #Flow
 
 loop do
-  index(contacts)
+   index( contacts )
 
-  puts
-  response = ask "Who would you like to see? (q to quit)"
+   puts
+   response = ask "Who would you like to see (n for new, q to quit)? "
 
-  break if response == "q"
-  i = response.to_i
+   break if response == "q"
 
-  contact = contacts[i-1]
+   if response == "n"
+     contact = create_new
 
-  puts
-  show(contact)
-  puts
+     contacts << contact
+
+     puts
+     puts "New contact created:"
+     puts
+
+     show( contact )
+ puts
+   else
+      i = response.to_i
+
+      contact = contacts[i-1]
+
+      puts
+      show( contact )
+      puts
+   end
+
 end
